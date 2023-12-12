@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script>
+
+        /**
+         * Creo una función que me permita identificar si un número es primo, incluyendo el numero 1 a parte
+        */
+
+        function esPrimo(numero) {
+        // Creo una función con un parámetro de entrada
+
+            if (numero == 1) {
+                return false;
+            }
+            // Esta es la condición para que no identifique el 1 como true
+
+            for (let i = 2; i < numero; i++) {
+                if (numero % i == 0) {
+                    return false;
+                }
+            }
+            /**
+             * Este es el bucle que permite identificar cada uno de los números desde el 2 hasta el número que se pasa por parámetro, esto  se hace mediante calculos del resto, si todos y absolutalmente todos son != 0 entonces
+             terminará deolviendo true
+            */
+            return true;
+            // Este es el return true mencionado anteriormente
+        }
+
+        function calcularSumaPrimos() {
+        // Creo la función solicitada
+        
+            let suma = 0;
+            // Creo una variable para sumar posteriormente los primos
+            
+            for (let i = 0; i < 15; i++) {
+            // Hago un un bucle que se repita 15 veces
+
+                let numeroIntroducido = Number(prompt("Introduce un número: "));
+                // En cada una de las veces el pido un número, no valido que sea un número, no lo pide el enunciado
+
+                if (esPrimo(numeroIntroducido)) {
+                // Creo un condicional que compruebe mediante la función creada anteriormente si es primo, que si sale true hara lo siguiente:
+
+                    suma += numeroIntroducido;
+                    // Suma de todos los que entrar en el condicional (aquellos que son primos)
+                };
+            };
+
+            // Esta es la suma de los número primos, que mediante funciones con elementos del DOM añade a la línea referenciada la cantidad sumada anteriormente en la función calcularSumaPrimos
+            document.getElementById("resultados").innerHTML = "La suma de tan solo los número primos introducidos es " + suma;
+        };
+
+
+
+    </script>
+    <h1>Suma de Números Primos</h1>
+    <button onclick="calcularSumaPrimos()">Calcular Suma de Números Primos</button>
+    <div id="resultados"></div>
+
+
+
+</body>
+
+</html>

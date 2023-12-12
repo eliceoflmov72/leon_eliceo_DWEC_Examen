@@ -30,3 +30,4 @@ form.addEventListener('submit', function(event) {
       resultDiv.textContent = `Error: ${error.message}`;
     });
 });
+
